@@ -1,8 +1,8 @@
 
-const USE_LOCAL = false; 
+const USE_LOCAL = true; 
 
 const BASE_DOMAIN = USE_LOCAL
-  ?"https://socially-1-hhrr.onrender.com": "http://localhost:5004"
+  ?"http://localhost:5004": "https://socially-1-hhrr.onrender.com"
 
  
 // https://socially-d8k0.onrender.com

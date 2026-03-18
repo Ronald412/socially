@@ -10,7 +10,7 @@ import postRouter from "./routes/post.route.js";
 import commentRouter from "./routes/comment.route.js";
 import searchRoutes from "./routes/search.route.js";
 import messageRoutes from "./routes/message.routes.js";
-
+import webhookRouter from "./routes/webhook.route.js";
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.use(
 );
 
 // 🔔 Webhook route (must come BEFORE express.json())
-app.use("/api/webhook", userRouter);
+app.use("/api/webhook", webhookRouter);
 
 // After webhooks, now safe to parse JSON
 app.use(express.json());

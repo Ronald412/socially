@@ -16,7 +16,8 @@ const RecomUsers = () => {
   if (loading)
     return <p className="text-gray-500 text-sm px-4">Loading suggestions...</p>;
   if (error) return <p className="text-red-500 text-sm px-4">{error}</p>;
-  if (!users?.length) return null;
+  if (!users ||users.length === 0) return 
+  <p className="text-gray-500 px-4">No Suggestions found.  </p>;
 
   return (
     <div className="hidden md:block bg-white dark:bg-gray-900 rounded-2xl shadow-sm p-3  h-fit">
@@ -25,7 +26,10 @@ const RecomUsers = () => {
       </h2>
 
       <div className="flex flex-col gap-3 ">
-        {users.slice(0, 8).map((user) => (
+        {
+        (users &&
+          Array.isArray(users)) &&
+          users.slice(0, 8).map((user) => (
           <div
             key={user._id}
             onClick={() => navigate(`/profile/${user._id}`)}

@@ -27,6 +27,7 @@ router.post(
   ]),
   createPost
 );
+ 
 router.get("/:userId/posts", getUserPosts);
 router.get("/",  getAllPosts);
 router.get("/:postId",  getPostById);
