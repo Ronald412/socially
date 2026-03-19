@@ -1,10 +1,13 @@
 import express from "express";
 import { clerkWebhook } from "../controllers/webhook.controller.js";
-import bodyParser from "body-parser";
 
 const router = express.Router();
 
-// Apply raw body parsing only to this specific route
-router.post("/clerk", bodyParser.raw({ type: "application/json" }), clerkWebhook);
+// Use express.raw to get the exact bytes Clerk sent
+router.post(
+  "/clerk",
+  express.raw({ type: "application/json" }),
+  clerkWebhook
+);
 
 export default router;
